@@ -1,0 +1,60 @@
+.sec3 {
+  padding-top: 3rem;
+}
+p {
+  width: 100%;
+}
+label {
+  display: block;
+  width: 100%;
+}
+input {
+  padding: 0.5rem 1rem;
+}
+input[name="title"] {
+  display: inline-block;
+  font-size: var(--size20);
+  width: calc(100% - 2rem);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1rem;
+}
+
+textarea {
+  display: inline-block;
+  font-size: var(--size20);
+  width: calc(100% - 2rem);
+  border: none;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  resize: none;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+ul > li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+}
+.pwd {
+  padding-bottom: 2rem;
+  text-align: end;
+}
+input[name="pw"] {
+  background-color: transparent;
+  border-bottom: 1px solid var(--borderList);
+}
+input[type="submit"] {
+  background-color: var(--brown);
+  border-radius: 0.5rem;
+  color: var(--white);
+  font-size: var(--size16);
+}
+@media (max-width: 315px) {
+  .pwd {
+    text-align: start;
+  }
+  .pwd input {
+    width: calc(100% - 2rem);
+  }
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HofDetail</title>
+    <link rel="stylesheet" href="./my_reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/public/css/my_reset.css" />
+    <link rel="stylesheet" href="/public/css/common.css" />
+    <link rel="stylesheet" href="/public/css/detail.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <%- include('header.ejs') %>
+      <!--  -->
+      <section class="sec4 mw">
+        <div class="gotolist">
+          <a href="/list">목록으로</a>
+        </div>
+        <div class="result" data-num="<%= data._id %>">
+          <p hidden><%= data._id %></p>
+          <p hidden><%= data.date %></p>
+          <p class="passwd" hidden><%= data.pw %></p>
+          <p><%= data.title %></p>
+          <p><%= data.content %></p>
+        </div>
+        <div class="btns">
+          <button class="delete" data-id="<%= data._id %>">내용 삭제</button>
+          <button class="modON">내용 수정</button>
+        </div>
+        <div class="listCon">
+          <ul class="cList">
+            <% for ( let list = 0; list < 5; list++ ) { %> <% if ( post[list] )
+            { %>
+            <li class="on">
+              <a href="/detail/<%= post[list]._id %>">
+                <p hidden>번호: <%= post[list]._id %></p>
+                <p><%= post[list].title %></p>
+                <p><%= post[list].date %></p>
+              </a>
+            </li>
+            <% } else { %>
+            <li class="on rmv"></li>
+            <% } %> <% } %>
+          </ul>
+        </div>
+        <div class="btn_np">
+          <% if ( data._id + 1 <= all ) { %>
+          <a href="/detail/<%= data._id + 1 %>">이전</a>
+          <% } else { %>
+          <button>이전</button>
+          <% } %> <% if ( data._id - 1 > 0 ) { %>
+          <a href="/detail/<%= data._id - 1 %>">다음</a>
+          <% } else { %>
+          <button>다음</button>
+          <% } %>
+        </div>
+
+        <div class="modal_con">
+          <form action="/modal" method="post">
+            <div class="modal">
+              <p>비밀번호를 입력해주세요.</p>
+              <label>
+                <input type="password" name="pwd" />
+              </label>
+              <div>
+                <a class="edit" href="/edit/<%= data._id %>">입력 완료</a>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="more_list">
+          <div class="list"></div>
+          <div class="btn_move"></div>
+        </div>
+      </section>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+      integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      $(".modON").click(function () {
+        $(".modal_con").addClass("on");
+      });
+
+      $(".delete").click(function (e) {
+        let num = e.target.dataset.id;
+        $.ajax({
+          method: "DELETE",
+          url: "/delete",
+          data: { _id: num },
+        })
+          .done(function (result) {
+            location.href = "/list";
+          })
+          .fail(function (error) {
+            console.log("실패");
+          });
+      });
+      //
+    </script>
+  </body>
+</html>

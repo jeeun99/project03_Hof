@@ -1,0 +1,70 @@
+@charset 'utf-8';
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+:root {
+  --black: #333;
+  --black50: rgba(0, 0, 0, 0.5);
+  --borderList: rgba(0, 0, 0, 0.15);
+  --inputcolor: #fcfbfb;
+  --search: #fafafa;
+  --white: #fff;
+  --beige: #fff1de;
+  --beige2: #ffcc90;
+  --brown: #e19b63;
+  --brown2: #a6683c;
+  --brown2_20: rgba(166, 104, 60, 0.2);
+  --indextext: #574141;
+  --size16: 16px;
+  --size20: 20px;
+  --size24: 24px;
+  --size32: 32px;
+}
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+body {
+  background-color: var(--search);
+  font-family: "Noto Sans KR", sans-serif;
+  color: var(--black);
+}
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.wrap {
+  overflow: hidden;
+}
+.mw {
+  width: calc(100% - 2rem);
+  margin: auto;
+  max-width: 500px;
+  height: inherit;
+}
+.hd {
+  width: 100%;
+  height: 100px;
+  font-size: var(--size32);
+  font-weight: bold;
+  background-color: var(--beige2);
+}
+.hd .inner {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--indextext);
+}
+.inner i {
+  color: var(--indextext);
+  cursor: pointer;
+}
+input {
+  border: none;
+  outline: none;
+}

@@ -1,0 +1,145 @@
+.sec4 {
+  padding: 1.5rem 0;
+}
+.result {
+  background-color: var(--beige);
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+}
+.result p:nth-of-type(3) {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--black50);
+}
+.result p:nth-of-type(4) {
+  padding-top: 1.5rem;
+  height: 250px;
+}
+.btns,
+.btn_np {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+.delete,
+.modON,
+.edit,
+.btn_np > button {
+  color: var(--white);
+  font-size: var(--size16);
+  display: inline-block;
+  padding: 6px 1.5rem;
+  border: 3px solid var(--brown);
+  background-color: var(--brown);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.modON:hover,
+.edit:hover,
+.delete:hover {
+  background-color: transparent;
+  border: 3px solid var(--brown);
+  color: var(--brown);
+}
+.modON {
+  margin-left: 1rem;
+}
+.edit {
+  padding: 0.5rem 1.5rem;
+}
+
+ul > li:nth-of-type(1) {
+  background-color: var(--brown2_20);
+}
+.modal_con {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal {
+  position: absolute;
+  width: 300px;
+  height: 160px;
+  border-radius: 0.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--search);
+  padding: 1rem;
+}
+.modal_con.on {
+  display: block;
+}
+.modal input {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  padding: 0.5rem;
+  margin: 1rem auto;
+  width: calc(100% - 1rem);
+}
+.modal > div {
+  display: flex;
+  justify-content: end;
+}
+ul > li > a {
+  display: flex;
+  padding: 1rem;
+  width: 100%;
+  color: var(--black);
+}
+ul > li > a > p:nth-of-type(2) {
+  width: 60%;
+}
+ul > li > a > p:nth-of-type(3) {
+  text-align: end;
+  width: 40%;
+}
+ul > li {
+  border-bottom: 1px dotted var(--borderList);
+}
+ul > li:hover {
+  background-color: var(--brown);
+}
+ul > li:hover a {
+  color: var(--white);
+}
+ul > .rmv {
+  border-bottom: none;
+}
+.btn_np > a,
+.gotolist > a {
+  display: inline-block;
+  color: var(--white);
+  background-color: var(--brown);
+  padding: 7px 1.5rem;
+  border: 3px solid var(--brown);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: var(--size16);
+}
+.btn_np > a:hover,
+.gotolist > a:hover {
+  background-color: transparent;
+  border: 3px solid var(--brown);
+  color: var(--brown);
+}
+.btn_np > a,
+.btn_np > button {
+  margin: auto 0.5rem;
+}
+.btn_np > button {
+  opacity: 0.5;
+  cursor: auto;
+}
+
+.gotolist {
+  display: flex;
+  justify-content: end;
+  padding: 1rem 0;
+}

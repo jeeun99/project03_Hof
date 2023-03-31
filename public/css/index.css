@@ -1,0 +1,134 @@
+.hd {
+  width: 100%;
+  height: 100px;
+  background-color: var(--beige);
+  /* width: 100%; */
+}
+.hd h1 {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.hd img {
+  height: 100%;
+}
+.sec1 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.mainImg {
+  width: 100%;
+}
+.mainImg img {
+  width: 100%;
+}
+.openTime {
+  width: 100%;
+  height: 80px;
+  background-color: var(--beige);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.openT,
+.closeT {
+  display: flex;
+  font-size: var(--size20);
+  color: var(--black50);
+}
+.openT {
+  padding-right: var(--size24);
+}
+.openT p:nth-of-type(1),
+.closeT p:nth-of-type(1) {
+  padding-right: 0.5rem;
+  font-weight: bold;
+  color: var(--indextext);
+}
+.menu,
+.review,
+.tour {
+  position: relative;
+  display: flex;
+  color: var(--black50);
+}
+.menu,
+.review {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  padding: 1.5rem 0;
+}
+.menu {
+  background-color: var(--brown);
+}
+.review {
+  background-color: var(--beige2);
+}
+.tour {
+  width: 100%;
+  padding: 44px 2rem;
+  background-color: var(--brown2);
+}
+.menu a,
+.review a,
+.tour a {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.menu p:nth-of-type(1),
+.review p:nth-of-type(1),
+.tour p:nth-of-type(1) {
+  color: var(--white);
+  font-size: var(--size24);
+  font-weight: bold;
+}
+.menu p:nth-of-type(2),
+.review p:nth-of-type(2),
+.tour p:nth-of-type(2) {
+  font-size: 12px;
+}
+.menu .innerText,
+.review .innerText {
+  padding-bottom: 30px;
+}
+.icons {
+  font-size: 3rem;
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icons i {
+  transition: 0.3s;
+}
+.menu:hover .icons i,
+.review:hover .icons i,
+.tour:hover .icons i {
+  transform: scale(1.1);
+}
+.menu .icons {
+  color: var(--brown);
+}
+.review .icons {
+  color: var(--beige2);
+}
+.tour .icons {
+  position: absolute;
+  color: var(--brown2);
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+}

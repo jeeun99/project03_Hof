@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HofReview</title>
+    <link rel="stylesheet" href="./my_reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/public/css/my_reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="/public/css/common.css" />
+    <link rel="stylesheet" href="/public/css/list.css" />
+    <script src="/public/js/list.js" defer></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <%- include('header.ejs') %>
+      <section class="sec2 mw">
+        <div class="btnWrite">
+          <a class="writing" href="/write">후기 작성</a>
+        </div>
+        <ul>
+          <li class="listTitle">
+            <p>제목</p>
+            <p>날짜</p>
+          </li>
+        </ul>
+
+        <div class="swiper mySlide">
+          <ul class="swiper-wrapper cList">
+            <% for ( list in post ) { %>
+            <li class="swiper-slide on">
+              <a href="/detail/<%= post[list]._id %>">
+                <p hidden>번호: <%= post[list]._id %></p>
+                <p><%= post[list].title %></p>
+                <p><%= post[list].date %></p>
+              </a>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+
+        <div class="more-button">
+          <div class="swiper-button-next next1"></div>
+          <div class="swiper-button-prev prev1"></div>
+        </div>
+        <div class="search">
+          <label for="">제목</label>
+          <input type="text" />
+          <button>검색</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySlide", {
+        slidesPerView: 7,
+        direction: "vertical",
+        navigation: {
+          nextEl: ".next1",
+          prevEl: ".prev1",
+        },
+        mousewheel: true,
+      });
+    </script>
+  </body>
+</html>

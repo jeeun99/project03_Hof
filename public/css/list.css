@@ -1,0 +1,143 @@
+.sec2 {
+  position: relative;
+  padding-top: 2rem;
+}
+.btnWrite {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin-bottom: 10px;
+}
+.btnWrite a {
+  display: inline-block;
+  color: var(--white);
+  background-color: var(--brown);
+  padding: 7px 1.5rem;
+  border: 3px solid var(--brown);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btnWrite a:hover {
+  background-color: transparent;
+  border: 3px solid var(--brown);
+  color: var(--brown);
+}
+ul > li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--borderList);
+}
+.cList > li {
+  display: none;
+  align-items: center;
+}
+.cList > li.on {
+  display: flex;
+}
+.listTitle {
+  padding: 1rem;
+  font-size: var(--size20);
+  color: var(--white);
+  border-bottom: none;
+  background-color: var(--brown);
+  border-radius: 10px 10px 0 0;
+}
+ul > li > a {
+  display: flex;
+  padding: 1rem;
+  width: 100%;
+  color: var(--black);
+}
+ul > li > a:hover {
+  background-color: var(--brown2_20);
+}
+ul > li > a > p:nth-of-type(2) {
+  width: 60%;
+}
+ul > li > a > p:nth-of-type(3) {
+  text-align: end;
+  width: 40%;
+}
+.search {
+  margin: 1.5rem auto;
+  box-shadow: 0 0 1px black;
+  display: flex;
+  flex-wrap: wrap;
+}
+.search > * {
+  display: block;
+  padding: 0.5rem 1rem;
+}
+.search input {
+  width: 60%;
+  padding: 0;
+  background-color: var(--search);
+}
+.search label {
+  position: relative;
+}
+.search label::before {
+  position: absolute;
+  content: "";
+  height: var(--size20);
+  width: 1px;
+  background-color: var(--black50);
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.search button,
+.search label {
+  width: 20%;
+  font-size: var(--size16);
+}
+.search button {
+  background-color: var(--brown);
+  color: var(--white);
+  cursor: pointer;
+}
+.mySlide {
+  height: calc(100vh - 600px);
+  overflow: hidden;
+}
+
+.more-button {
+  padding-top: 15%;
+  position: relative;
+}
+.prev1,
+.next1 {
+  top: 50%;
+  bottom: 0;
+  transform: translateY(30%);
+  background-color: var(--brown);
+  width: 40px;
+  height: 40px;
+  border-radius: 20%;
+}
+
+.prev1::after,
+.next1::after {
+  color: var(--black);
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 2.5rem;
+
+  position: absolute;
+}
+.prev1::after {
+  content: "\f0d8";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.next1::after {
+  content: "\f0d7";
+}
+@media (max-height: 800px) {
+  .mySlide {
+    height: calc(60vh - 100px);
+    overflow: hidden;
+  }
+}
