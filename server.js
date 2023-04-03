@@ -47,14 +47,14 @@ async function main() {
       });
       const result2 = (await cursor.toArray()).sort().reverse();
 
-      const { totalcounter } = await counterCollection.findOne({
-        name: "count",
-      });
+      const all = postCollection.find({});
+      const allresult = (await all.toArray()).sort().reverse();
+      const arrLength = parseInt(allresult.length);
 
       res.render("detail.ejs", {
-        data: result,
+        result: result,
         post: result2,
-        all: parseInt(totalcounter),
+        length: arrLength,
       });
     });
 
@@ -94,10 +94,10 @@ async function main() {
 
     //PUT
     app.put("/edit", async (req, res) => {
-      const { id, title, content } = req.body;
+      const { id, title, content, pw } = req.body;
       await postCollection.updateOne(
         { _id: parseInt(id) },
-        { $set: { title: title, content: content } }
+        { $set: { title: title, content: content, pw: pw } }
       );
       console.log("수정완료");
       res.redirect("/list");

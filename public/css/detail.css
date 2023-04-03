@@ -141,5 +141,5 @@ ul > .rmv {
 .gotolist {
   display: flex;
   justify-content: end;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
 }

@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HofDetail</title>
-    <link rel="stylesheet" href="./my_reset.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -25,15 +24,17 @@
         <div class="gotolist">
           <a href="/list">목록으로</a>
         </div>
-        <div class="result" data-num="<%= data._id %>">
-          <p hidden><%= data._id %></p>
-          <p hidden><%= data.date %></p>
-          <p class="passwd" hidden><%= data.pw %></p>
-          <p><%= data.title %></p>
-          <p><%= data.content %></p>
+        <div class="result" data-num="<%= result._id %>">
+          <p hidden><%= result._id %></p>
+          <p hidden><%= result.date %></p>
+          <p><%= result.title %></p>
+          <p><%= result.content %></p>
+          <p class="passwd" data-pwd="<%= result.pw %>" hidden>
+            <%= result.pw %>
+          </p>
         </div>
         <div class="btns">
-          <button class="delete" data-id="<%= data._id %>">내용 삭제</button>
+          <button class="delete" data-id="<%= result._id %>">내용 삭제</button>
           <button class="modON">내용 수정</button>
         </div>
         <div class="listCon">
@@ -52,30 +53,30 @@
             <% } %> <% } %>
           </ul>
         </div>
+
         <div class="btn_np">
-          <% if ( data._id + 1 <= all ) { %>
-          <a href="/detail/<%= data._id + 1 %>">이전</a>
+          <% if (result._id === post[0]._id) { %>
+          <button disabled>이전</button>
+          <a href="/detail/<%= parseInt(result._id) - 1  %>">다음</a>
+          <% } else if (result._id === post[post.length - 1]._id) { %>
+          <a href="/detail/<%= parseInt(result._id) + 1 %>">이전</a>
+          <button disabled>다음</button>
           <% } else { %>
-          <button>이전</button>
-          <% } %> <% if ( data._id - 1 > 0 ) { %>
-          <a href="/detail/<%= data._id - 1 %>">다음</a>
-          <% } else { %>
-          <button>다음</button>
+          <a href="/detail/<%= parseInt(result._id) + 1 %>">이전</a>
+          <a href="/detail/<%= parseInt(result._id) - 1 %>">다음</a>
           <% } %>
         </div>
 
         <div class="modal_con">
-          <form action="/modal" method="post">
-            <div class="modal">
-              <p>비밀번호를 입력해주세요.</p>
-              <label>
-                <input type="password" name="pwd" />
-              </label>
-              <div>
-                <a class="edit" href="/edit/<%= data._id %>">입력 완료</a>
-              </div>
+          <div class="modal">
+            <p>비밀번호를 입력해주세요.</p>
+            <label>
+              <input type="password" id="pwd" name="pwd" />
+            </label>
+            <div>
+              <a class="edit">입력 완료</a>
             </div>
-          </form>
+          </div>
         </div>
         <div class="more_list">
           <div class="list"></div>
@@ -110,6 +111,18 @@
           });
       });
       //
+      const passwd = document.querySelector(".passwd");
+      const editbtn = document.querySelector(".edit");
+      const inputpw = document.querySelector("#pwd");
+      editbtn.addEventListener("click", (e) => {
+        let pw = passwd.dataset.pwd;
+        if (pw !== inputpw.value.trim()) {
+          alert("비밀번호가 일치하지 않습니다.");
+          e.preventDefault();
+        } else {
+          location.href = "/edit/<%= result._id %>";
+        }
+      });
     </script>
   </body>
 </html>
