@@ -54,6 +54,7 @@ async function main() {
       res.render("detail.ejs", {
         result: result,
         post: result2,
+        all: allresult,
         length: arrLength,
       });
     });

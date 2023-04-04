@@ -18,12 +18,3 @@ $btn.addEventListener("click", () => {
     }
   });
 });
-
-const moreButton = document.querySelector(".more-button button");
-const slides = document.querySelectorAll(".swiper-slide");
-
-moreButton.addEventListener("click", () => {
-  slides.forEach((slide) => {
-    slide.classList.toggle("show");
-  });
-});

@@ -54,18 +54,21 @@
           </ul>
         </div>
 
+        <% for (let i = 0; i < all.length; i++) { %> <% if ( result._id ==
+        all[i]._id ) { %>
         <div class="btn_np">
-          <% if (result._id === post[0]._id) { %>
-          <button disabled>이전</button>
-          <a href="/detail/<%= parseInt(result._id) - 1  %>">다음</a>
-          <% } else if (result._id === post[post.length - 1]._id) { %>
-          <a href="/detail/<%= parseInt(result._id) + 1 %>">이전</a>
-          <button disabled>다음</button>
-          <% } else { %>
-          <a href="/detail/<%= parseInt(result._id) + 1 %>">이전</a>
-          <a href="/detail/<%= parseInt(result._id) - 1 %>">다음</a>
+          <% if (i === 0) { %>
+          <button>이전</button>
+          <a href="/detail/<%= all[i + 1]._id %>">다음</a>
+          <% } else if (i === all.length - 1) { %>
+          <a href="/detail/<%= all[i - 1]._id %>">이전</a>
+          <button>다음</button>
+          <% } else if (i > 0 && i < all.length - 1) { %>
+          <a href="/detail/<%= all[i - 1]._id %>">이전</a>
+          <a href="/detail/<%= all[i + 1]._id %>">다음</a>
           <% } %>
         </div>
+        <% } %> <% } %>
 
         <div class="modal_con">
           <div class="modal">
