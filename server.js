@@ -25,7 +25,7 @@ async function main() {
 
     //GET
     app.get("/", (req, res) => {
-      res.render("index.ejs");
+      res.render("index_old.ejs");
     });
 
     app.get("/list", async (req, res) => {
