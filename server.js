@@ -9,6 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
 app.use("/public", express.static("public"));
+app.use("/views", express.static("views"));
 
 const { MongoClient } = require("mongodb");
 const url =
@@ -109,6 +110,6 @@ async function main() {
 
 main().catch(console.dir);
 
-app.listen(8080, () => {
+app.listen(5500, () => {
   console.log("listening on 8080");
 });
