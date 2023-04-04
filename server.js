@@ -25,7 +25,7 @@ async function main() {
 
     //GET
     app.get("/", (req, res) => {
-      res.render("index_old.ejs");
+      res.render("first.ejs");
     });
 
     app.get("/list", async (req, res) => {
@@ -110,6 +110,6 @@ async function main() {
 
 main().catch(console.dir);
 
-app.listen(5500, () => {
+app.listen(8080, () => {
   console.log("listening on 8080");
 });
