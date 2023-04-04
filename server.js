@@ -9,7 +9,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
 app.use("/public", express.static("public"));
-app.use("/views", express.static("views"));
 
 const { MongoClient } = require("mongodb");
 const url =
